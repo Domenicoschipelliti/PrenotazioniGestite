@@ -34,7 +34,7 @@ public class Edificio {
    @OneToMany
    private List<PostazioniAziendali> postazioniAziendali;
 
-   @OneToMany
+   @ManyToMany
    private List<Utente> utentes;
 
    public Edificio(String nome, String indirizzo, String citta) {

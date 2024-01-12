@@ -2,6 +2,7 @@ package Domenico.GestionePrenotazioni.enteties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,8 @@ public class Utente {
 
     private String email;
 
-    @ManyToOne
-    private Edificio edificio;
+    @ManyToMany
+    private List<Edificio> edificio;
 
     public Utente(String userName, String nomeCompleto, String email) {
         this.userName = userName;
