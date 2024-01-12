@@ -1,22 +1,41 @@
 package Domenico.GestionePrenotazioni.enteties;
 
+import Domenico.GestionePrenotazioni.DAO.EdificoService;
+import Domenico.GestionePrenotazioni.DAO.PostazioniAziendaliService;
+import Domenico.GestionePrenotazioni.DAO.UtenteService;
+import Domenico.GestionePrenotazioni.Enum.Tipo;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Setter
+@Getter
 @Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Component
 public class Edificio {
+   @Id
+   @GeneratedValue
+   private long id;
 
    private String nome;
-   @Id
+
    private String indirizzo;
 
    private String citta;
 
-   @OneToOne
-   private PostazioniAziendali postazioniAziendali;
+
+
+   @OneToMany
+   private List<PostazioniAziendali> postazioniAziendali;
+
+   @OneToMany
+   private List<Utente> utentes;
 
    public Edificio(String nome, String indirizzo, String citta) {
       this.nome = nome;
@@ -27,37 +46,6 @@ public class Edificio {
    public Edificio() {
    }
 
-   public String getNome() {
-      return nome;
-   }
-
-   public String getIndirizzo() {
-      return indirizzo;
-   }
-
-   public String getCitta() {
-      return citta;
-   }
-
-   public PostazioniAziendali getPostazioniAziendali() {
-      return postazioniAziendali;
-   }
-
-   public void setNome(String nome) {
-      this.nome = nome;
-   }
-
-   public void setIndirizzo(String indirizzo) {
-      this.indirizzo = indirizzo;
-   }
-
-   public void setCitta(String citta) {
-      this.citta = citta;
-   }
-
-   public void setPostazioniAziendali(PostazioniAziendali postazioniAziendali) {
-      this.postazioniAziendali = postazioniAziendali;
-   }
 
    @Override
    public String toString() {

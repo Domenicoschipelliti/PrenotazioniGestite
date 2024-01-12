@@ -20,7 +20,7 @@ public class Utente {
     private String email;
 
     @ManyToOne
-    private PostazioniAziendali postazioniAziendali;
+    private Edificio edificio;
 
     public Utente(String userName, String nomeCompleto, String email) {
         this.userName = userName;
@@ -38,7 +38,7 @@ public class Utente {
                 "userName='" + userName + '\'' +
                 ", nomeCompleto='" + nomeCompleto + '\'' +
                 ", email='" + email + '\'' +
-                ", postazioniAziendali=" + postazioniAziendali +
+                ", edificio=" + edificio +
                 '}';
     }
 }

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class RunnerRun implements CommandLineRunner {
-
     @Autowired
     PostazioniAziendaliService postazioniAziendaliService;
     @Autowired
@@ -19,17 +18,16 @@ public class RunnerRun implements CommandLineRunner {
     UtenteService utenteService;
     @Override
     public void run(String... args) throws Exception {
+        System.out.println("DATABASE COLLEGATO");
 
-         System.out.println("DATABASE COLLEGATO");
+        PostazioniAziendali postazioniAziendali=new PostazioniAziendali("postazione 8", Tipo.PRIVATO,8);
+        Edificio edifi=new Edificio("Constructor SRL","via savona 13","Milano");
+        Utente utente=new Utente("dom02","domenico","domenico@gmail.com");
 
-         PostazioniAziendali postazioniAziendali=new PostazioniAziendali("postazione 8", Tipo.PRIVATO,8);
-         Edificio edificio=new Edificio("Constructor SRL","via savona 13","Milano");
-         Utente utente=new Utente("dom02","domenico","domenico@gmail.com");
-
-         postazioniAziendaliService.savePostazioni(postazioniAziendali);
-         edificoService.saveEdificio(edificio);
-         utenteService.saveUtente(utente);
-
-
+        postazioniAziendaliService.savePostazioni(postazioniAziendali);
+        edificoService.saveEdificio(edifi);
+        utenteService.saveUtente(utente);
     }
+
+
 }

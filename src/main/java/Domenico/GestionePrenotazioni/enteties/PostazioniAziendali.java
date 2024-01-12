@@ -6,11 +6,15 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.CommandLineRunner;
 
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class PostazioniAziendali {
      @Id
      @GeneratedValue
+     @Getter
      private long id;
 
      private String descrizione;
@@ -21,7 +25,6 @@ public class PostazioniAziendali {
      private int numeroMassimoOccupanti;
 
      @ManyToOne
-     @JoinColumn
      private Edificio edificio;
 
 
@@ -34,42 +37,8 @@ public class PostazioniAziendali {
     public PostazioniAziendali() {
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getDescrizione() {
-        return descrizione;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public int getNumeroMassimoOccupanti() {
-        return numeroMassimoOccupanti;
-    }
-
-    public Edificio getEdificio() {
-        return edificio;
-    }
 
 
-    public void setDescrizione(String descrizione) {
-        this.descrizione = descrizione;
-    }
-
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setNumeroMassimoOccupanti(int numeroMassimoOccupanti) {
-        this.numeroMassimoOccupanti = numeroMassimoOccupanti;
-    }
-
-    public void setEdificio(Edificio edificio) {
-        this.edificio = edificio;
-    }
 
     @Override
     public String toString() {

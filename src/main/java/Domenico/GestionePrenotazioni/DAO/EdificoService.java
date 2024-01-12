@@ -1,6 +1,8 @@
 package Domenico.GestionePrenotazioni.DAO;
 
+import Domenico.GestionePrenotazioni.Enum.Tipo;
 import Domenico.GestionePrenotazioni.enteties.Edificio;
+import Domenico.GestionePrenotazioni.enteties.PostazioniAziendali;
 import Domenico.GestionePrenotazioni.interfacce.EdificioDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,4 +17,7 @@ public class EdificoService {
         edificioDao.save(edificio);
         System.out.println("edifico visto");
     }
+
+
+
 }
